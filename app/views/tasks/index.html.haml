@@ -8,7 +8,14 @@
 
   - if @tasks.size > 0
     %ul.list-group
-      = render @tasks
+      - @tasks.each do |task|
+        %li.list-group-item
+          = link_to complete_task_path(task), class: 'action-complete', method: :post do
+            = task.title
+            %span.glyphicon.glyphicon-ok
+          = link_to task_path(task), class: 'action-delete', method: :delete do
+            %span.glyphicon.glyphicon-trash
+
   - else
 
     %div.alert.alert-info

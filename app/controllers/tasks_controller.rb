@@ -35,6 +35,9 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    @task.destroy!
+    flash[:notice] = "Task usunięty!"
+    redirect_to tasks_path
   end
 
   def complete
