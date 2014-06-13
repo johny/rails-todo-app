@@ -19,8 +19,11 @@ class Task < ActiveRecord::Base
   ## instance methods
 
   def complete!
-    self.done = true
-    save
+    if done == false
+      self.done = true
+      self.user.profile.award_xp_for_task_completion
+      save
+    end
   end
 
 end

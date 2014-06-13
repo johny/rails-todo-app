@@ -7,15 +7,22 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        = link_to 'TodoRPG', root_path, class: 'navbar-brand'
+        = link_to root_path, class: 'navbar-brand' do
+          TodoRPG
+          - if user_signed_in?
+            %span.badge
+              = current_user.number_of_open_tasks
       .collapse.navbar-collapse
         - if user_signed_in?
           %ul.nav.navbar-nav
-            %li
-              = link_to tasks_path do
-                Do zrobienia
-                %span.badge
-                  = current_user.number_of_open_tasks
+            %li.navbar-text
+              Poziom
+              = current_user.profile.level
+            %li.navbar-text
+              Punkty doświadczenia:
+              = "#{current_user.profile.xp_points} / #{current_user.profile.xp_for_next_level}"
+
+
         %ul.nav.navbar-nav.navbar-right
           - if user_signed_in?
             %li.navbar-text Witaj #{current_user.name}!
