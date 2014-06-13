@@ -1,0 +1,17 @@
+%div.page-header
+  %h1 Nowy task
+
+%div.page-content
+
+  = form_for @task do |f|
+
+    %div.form-group
+      = f.label :title, "Zadanie:"
+      = f.text_field :title, class: 'form-control', autofocus: true, placeholder: "Wpisz co masz do zrobienia..."
+
+    %div.form-group
+      = f.label :description, "Dodatkowy opis:"
+      = f.text_area :description, class: 'form-control', rows: 2
+
+    %div.form-actions
+      = f.submit "Dodaj task", class: 'btn btn-primary'

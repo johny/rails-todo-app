@@ -1,0 +1,23 @@
+%header.header
+  %nav.navbar.navbar-inverse.navbar-static-top
+    .container
+      .navbar-header
+        %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        = link_to 'TodoRPG', root_path, class: 'navbar-brand'
+      .collapse.navbar-collapse
+        - if user_signed_in?
+          %ul.nav.navbar-nav
+            %li= link_to "Twoje zadania", root_path
+        %ul.nav.navbar-nav.navbar-right
+          - if user_signed_in?
+            %li.navbar-text Witaj #{current_user.name}!
+            %li= link_to 'Ustawienia', edit_user_registration_path
+            %li= link_to 'Wyloguj się', destroy_user_session_path, :method=>'delete'
+
+          - else
+            %li= link_to 'Zaloguj się', new_user_session_path
+            %li= link_to 'Rejestracja', new_user_registration_path

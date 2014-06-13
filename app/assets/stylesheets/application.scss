@@ -1,0 +1,32 @@
+
+$brand-primary: #2980b9;
+$navbar-inverse-link-color: #eee;
+$navbar-inverse-color: #eee;
+$navbar-inverse-bg: #16a085;
+
+@import "bootstrap";
+
+
+.page-header{
+  position: relative;
+}
+
+.nav-right{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.list-group-item{
+  position: relative;
+}
+
+.action-right{
+  position: absolute;
+  right:0px;
+  top: 0;
+}
+
+.completed{
+  text-decoration: line-through;
+}

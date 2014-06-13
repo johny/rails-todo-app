@@ -1,0 +1,29 @@
+%div.page-header
+  %h1 Zadania
+
+  %ul.nav.nav-right.nav-pills
+    %li= link_to "Dodaj nowe zadanie", new_task_path
+
+%div.page-content
+
+  - if @tasks.size > 0
+    %ul.list-group
+      = render @tasks
+  - else
+
+    %div.alert.alert-info
+      %p
+        %strong Hurra!
+        Brak zadań na dziś!
+
+
+
+  - if @finished_tasks.size > 0
+    %h3 Ukończone
+    %table.table.table-condensed
+      %tbody
+        - @finished_tasks.each do |t|
+          %tr
+            %td.completed= t.title
+            %td
+              = "#{distance_of_time_in_words_to_now t.updated_at} temu"
