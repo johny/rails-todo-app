@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140613181735) do
+ActiveRecord::Schema.define(version: 20140613202412) do
 
   create_table "installs", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 20140613181735) do
 
   add_index "installs", ["email"], name: "index_installs_on_email", unique: true, using: :btree
   add_index "installs", ["reset_password_token"], name: "index_installs_on_reset_password_token", unique: true, using: :btree
+
+  create_table "profiles", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "xp_points",  default: 0
+    t.integer  "level",      default: 1
+    t.string   "title",                  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tasks", force: true do |t|
     t.string   "title"

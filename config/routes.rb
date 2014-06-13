@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resource :profile
+
   devise_for :users
   resources :tasks do
     member do

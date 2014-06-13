@@ -3,6 +3,8 @@ $brand-primary: #2980b9;
 $navbar-inverse-link-color: #eee;
 $navbar-inverse-color: #eee;
 $navbar-inverse-bg: #16a085;
+$badge-bg: #eee;
+$badge-color: $brand-primary;
 
 @import "bootstrap";
 
@@ -15,6 +17,12 @@ $navbar-inverse-bg: #16a085;
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.todo-form{
+  input[id="task_title"]{
+    width: 520px;
+  }
 }
 
 .list-group-item{

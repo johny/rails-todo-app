@@ -6,6 +6,9 @@ class TasksController < ApplicationController
   def index
     @tasks = current_user.tasks.not_done
     @finished_tasks = current_user.tasks.finished
+
+    # for new task form
+    @task = Task.new
   end
 
   def show

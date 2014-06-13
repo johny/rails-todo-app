@@ -1,0 +1,7 @@
+%div.well
+  = form_for @task, html: {class: "form-inline todo-form"} do |f|
+    %fieldset
+      %div.form-group
+        = f.label :title, "Zadanie:", class: "sr-only"
+        = f.text_field :title, class: 'form-control', autofocus: true, placeholder: "Wpisz co masz do zrobienia..."
+        = f.submit "Dodaj task", class: 'btn btn-primary'

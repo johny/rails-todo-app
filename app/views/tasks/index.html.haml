@@ -1,10 +1,9 @@
 %div.page-header
-  %h1 Zadania
-
-  %ul.nav.nav-right.nav-pills
-    %li= link_to "Dodaj nowe zadanie", new_task_path
+  %h1 Twoje wyzwania
 
 %div.page-content
+
+  = render partial: 'tasks/form'
 
   - if @tasks.size > 0
     %ul.list-group
