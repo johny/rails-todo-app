@@ -62,6 +62,11 @@ class Profile < ActiveRecord::Base
     self.save!
   end
 
+  def award_xp_for_task_creation
+    self.xp_points += Rules.base_xp_bonus_for_task_creation
+    self.save!
+  end
+
 
   ## private
 

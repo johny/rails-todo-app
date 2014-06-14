@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
 
+  include TasksHelper
+
   before_filter :find_task, only: [:show, :edit, :update, :destroy, :complete]
   before_filter :authenticate_user!
 
@@ -22,7 +24,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.user = current_user
     if @task.save
-      flash[:notice] = "Wyzwanie zapisane!"
+      flash[:notice] = "Zadanie zapisane!"
       redirect_to tasks_path
     else
       flash.now[:error] = "Niepoprawne dane"
@@ -35,17 +37,26 @@ class TasksController < ApplicationController
   end
 
   def update
+    @task.update_attributes(task_params)
+    if @task.save
+      flash[:notice] = "Zadanie zaktualizowane!"
+      redirect_to tasks_path
+    else
+      flash.now[:error] = "Niepoprawne dane w formularzu!"
+      render action: "edit"
+    end
   end
 
   def destroy
     @task.destroy!
-    flash[:notice] = "Wyzwanie usunięte!"
+    flash[:notice] = "Zadanie usunięte!"
     redirect_to tasks_path
   end
 
   def complete
     @task.complete!
-    flash[:notice] = "Zwycięzstwo! Wyzwanie ukończone!"
+
+    flash[:notice] = completion_flash_notice
     redirect_to tasks_path
   end
 

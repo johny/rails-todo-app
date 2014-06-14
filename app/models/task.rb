@@ -11,6 +11,10 @@ class Task < ActiveRecord::Base
     too_long: "Maksymalnie 250 znaków!"
   }
 
+  ## callbacks
+
+  before_create :award_points_for_creation
+
   ## scopes
 
   scope :not_done, -> {where(done: false).order(created_at: :desc)}
@@ -26,5 +30,13 @@ class Task < ActiveRecord::Base
       save
     end
   end
+
+  ## private methods
+
+  private
+
+    def award_points_for_creation
+      self.user.profile.award_xp_for_task_creation
+    end
 
 end

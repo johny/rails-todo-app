@@ -8,4 +8,8 @@ class Rules
     100
   end
 
+  def self.base_xp_bonus_for_task_creation
+    10
+  end
+
 end
