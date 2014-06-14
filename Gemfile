@@ -11,9 +11,20 @@ gem 'haml-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
 
 gem 'devise'
+
+group :development do
+  gem 'spring',        group: :development
+
+  gem 'capistrano', '~> 3.2.1'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+
+  gem 'quiet_assets'
+
+end
 
 
 #assets
