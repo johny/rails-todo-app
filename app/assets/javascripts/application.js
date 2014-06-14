@@ -5,7 +5,7 @@
 //= require jquery.easy-pie-chart.js
 //= require_tree .
 
-$(function() {
+$(document).on('page:change', function() {
     $('.chart').easyPieChart({
       scaleColor: false,
       lineWidth: 10,
