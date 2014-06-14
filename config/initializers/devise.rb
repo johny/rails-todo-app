@@ -2,7 +2,7 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
 
-  config.secret_key = ENV["DEVISE_SECRET_KEY"]
+  config.secret_key = Figaro.env.devise_secret_key!
 
 
   # ==> Mailer Configuration
