@@ -25,6 +25,8 @@ group :development do
 
   gem 'quiet_assets'
 
+  gem 'seed_dump'
+
 end
 
 
