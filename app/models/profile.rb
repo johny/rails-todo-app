@@ -48,17 +48,9 @@ class Profile < ActiveRecord::Base
     return xp.to_i
   end
 
-  def award_xp_for_task_completion
-
-    # get base value
-    awarded_xp = Rules.base_xp_bonus_for_task_completion
-
-    # apply some randomness
-    awarded_xp = (awarded_xp * rand(80..120) / 100).to_i
-
+  def award_xp_for_task_completion xp
     # update profile
-    self.xp_points += awarded_xp
-
+    self.xp_points += xp
     self.save!
   end
 

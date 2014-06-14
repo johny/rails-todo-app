@@ -13,7 +13,12 @@ class Task < ActiveRecord::Base
 
   ## callbacks
 
-  before_create :award_points_for_creation
+  before_create do
+    set_xp_for_task
+
+    # add some points for user for
+    self.user.profile.award_xp_for_task_creation
+  end
 
   ## scopes
 
@@ -26,7 +31,7 @@ class Task < ActiveRecord::Base
   def complete!
     if done == false
       self.done = true
-      self.user.profile.award_xp_for_task_completion
+      self.user.profile.award_xp_for_task_completion self.xp_points
       save
     end
   end
@@ -35,8 +40,11 @@ class Task < ActiveRecord::Base
 
   private
 
-    def award_points_for_creation
-      self.user.profile.award_xp_for_task_creation
+    def set_xp_for_task
+      # get base value
+      xp = Rules.base_xp_bonus_for_task_completion
+      xp = (xp * rand(80..120) / 100).to_i
+      self.xp_points = xp
     end
 
 end
