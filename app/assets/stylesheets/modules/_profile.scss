@@ -1,0 +1,38 @@
+.xp-chart{
+  position: relative;
+  width: 240px;
+  margin: 20px auto;
+
+  .xp-label, .lvl-label{
+    position: absolute;
+    left: 20px;
+    top: 140px;
+    width: 200px;
+    font-size: 11px;
+    text-align: center;
+    font-weight: 200;
+    color: $gray-light;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .lvl-label{top: 30px;}
+
+  .points, .level{
+    position: absolute;
+    left: 20px;
+    top: 160px;
+    width: 200px;
+    font-size: 30px;
+    line-height: 32px;
+    text-align: center;
+    font-weight: 100;
+    color: $gray;
+  }
+
+  .level{
+    top: 70px;
+    font-size: 72px;
+  }
+
+}

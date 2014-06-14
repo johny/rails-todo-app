@@ -39,8 +39,13 @@ class Profile < ActiveRecord::Base
   ## instance methods
 
   def xp_for_next_level
-    xp = (Rules.base_xp_per_level * (level + 0.15 * (self.level - 1))).to_i
-    return xp
+    xp = Rules.base_xp_per_level * (level + 0.15 * (self.level - 1))
+    return xp.to_i
+  end
+
+  def percentage_xp_to_next_level
+    xp = (xp_points.to_f / xp_for_next_level.to_f) * 100
+    return xp.to_i
   end
 
   def award_xp_for_task_completion
@@ -55,7 +60,6 @@ class Profile < ActiveRecord::Base
     self.xp_points += awarded_xp
 
     self.save!
-
   end
 
 

@@ -1,0 +1,34 @@
+.todo-form{
+  input[id="task_title"]{
+    width: 520px;
+  }
+}
+
+.list-group-item{
+  position: relative;
+  padding-left: 30px;
+
+
+  .glyphicon-ok{
+    position: absolute;
+    left:8px;
+    top: 12px;
+    color: #ddd;
+  }
+
+  .glyphicon-trash{
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    color: #eee;
+  }
+
+  &:hover{
+    .glyphicon-trash{color: #ddd;}
+    .glyphicon-ok{color: $brand-primary;}
+  }
+}
+
+.completed{
+  text-decoration: line-through;
+}

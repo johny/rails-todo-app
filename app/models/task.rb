@@ -15,6 +15,7 @@ class Task < ActiveRecord::Base
 
   scope :not_done, -> {where(done: false).order(created_at: :desc)}
   scope :finished, -> {where(done: true).order(updated_at: :desc)}
+  scope :completed, -> {finished}
 
   ## instance methods
 

@@ -1,0 +1,29 @@
+%div.panel.panel-default
+  %div.panel-heading
+    %h3.panel-title
+      = current_user.name
+      %em
+        &mdash;
+        = current_user.profile.title
+
+  %div.panel-body
+
+    %dl.dl-horizontal
+
+      %dt Poziom
+      %dd= current_user.profile.level
+
+      %dt Otwarte zadania:
+      %dd= current_user.number_of_open_tasks
+
+      %dt Ukończone zadania:
+      %dd= current_user.number_of_completed_tasks
+
+%div.well
+  %div.chart.xp-chart{data: {percent: current_user.profile.percentage_xp_to_next_level}}
+    %span.lvl-label Poziom
+    %span.level= current_user.profile.level
+    %span.xp-label Punkty doświadczenia
+    %span.points= "#{current_user.profile.xp_points} / #{current_user.profile.xp_for_next_level}"
+
+

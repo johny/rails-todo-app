@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
     return tasks.not_done.size
   end
 
+  def number_of_completed_tasks
+    return tasks.completed.size
+  end
+
 end

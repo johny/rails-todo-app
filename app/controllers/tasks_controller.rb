@@ -22,7 +22,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.user = current_user
     if @task.save
-      flash[:notice] = "Task zapisany!"
+      flash[:notice] = "Wyzwanie zapisane!"
       redirect_to tasks_path
     else
       flash.now[:error] = "Niepoprawne dane"
@@ -39,13 +39,13 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy!
-    flash[:notice] = "Task usunięty!"
+    flash[:notice] = "Wyzwanie usunięte!"
     redirect_to tasks_path
   end
 
   def complete
     @task.complete!
-    flash[:notice] = "Task zakończony!"
+    flash[:notice] = "Zwycięzstwo! Wyzwanie ukończone!"
     redirect_to tasks_path
   end
 
