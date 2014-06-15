@@ -23,9 +23,10 @@
       Brak zadań na dziś!
 
 
-
 - if @finished_tasks.size > 0
-  %h3 Ukończone
+  %h3
+    Ukończone
+    %small (ostatnie 10)
   %table.table.table-condensed
     %tbody
       - @finished_tasks.each do |t|

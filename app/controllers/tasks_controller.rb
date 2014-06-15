@@ -7,7 +7,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = current_user.tasks.not_done
-    @finished_tasks = current_user.tasks.finished
+    @finished_tasks = current_user.tasks.finished.limit(10)
 
     # for new task form
     @task = Task.new

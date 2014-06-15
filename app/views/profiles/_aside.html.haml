@@ -19,9 +19,10 @@
       %dt Ukończone zadania:
       %dd= current_user.number_of_completed_tasks
 
-%div.well
-  %div.chart.xp-chart{data: {percent: current_user.profile.percentage_xp_to_next_level}}
-    %span.lvl-label Aktualny poziom
-    %span.level= current_user.profile.level
-    %span.xp-label Punkty doświadczenia na kolejny poziom
-    %span.points= "#{current_user.profile.xp_points} / #{current_user.profile.xp_points_for_next_level}"
+%div.panel.panel-default
+  %div.panel-body
+    %div.chart.xp-chart{data: {percent: current_user.profile.percentage_xp_to_next_level}}
+      %span.lvl-label Aktualny poziom
+      %span.level= current_user.profile.level
+      %span.xp-label Punkty doświadczenia na kolejny poziom
+      %span.points= "#{current_user.profile.xp_points} / #{current_user.profile.xp_points_for_next_level}"
