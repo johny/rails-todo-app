@@ -1,0 +1,11 @@
+%table.table.table-condensed
+  %thead
+    %tr
+      %th level
+      %th xp
+      %th avg. tasks/lvl
+  - 100.times do |i|
+    %tr
+      %td= i+2
+      %td= Rules.xp_for_level(i+1)
+      %td= (Rules.xp_for_level(i+1) - Rules.xp_for_level(i)) / 100

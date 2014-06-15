@@ -6,9 +6,10 @@
   .xp-label, .lvl-label{
     position: absolute;
     left: 20px;
-    top: 140px;
+    top: 125px;
     width: 200px;
     font-size: 11px;
+    line-height: 11px;
     text-align: center;
     font-weight: 200;
     color: $gray-light;
@@ -21,9 +22,9 @@
   .points, .level{
     position: absolute;
     left: 20px;
-    top: 160px;
+    top: 150px;
     width: 200px;
-    font-size: 30px;
+    font-size: 24px;
     line-height: 32px;
     text-align: center;
     font-weight: 100;
@@ -31,8 +32,8 @@
   }
 
   .level{
-    top: 70px;
-    font-size: 72px;
+    top: 64px;
+    font-size: 48px;
   }
 
 }

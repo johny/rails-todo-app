@@ -35,5 +35,6 @@
               %span.glyphicon.glyphicon-ok-sign
               = "#{t.xp_points} XP"
           %td.completed= t.title
-          %td.col-md-2
-            = "#{distance_of_time_in_words_to_now t.updated_at} temu"
+          %td.col-md-3.text-right
+            - unless t.completed_at.nil?
+              %small= "#{distance_of_time_in_words_to_now t.completed_at} temu"

@@ -23,7 +23,7 @@ class Task < ActiveRecord::Base
   ## scopes
 
   scope :not_done, -> {where(done: false).order(created_at: :desc)}
-  scope :finished, -> {where(done: true).order(updated_at: :desc)}
+  scope :finished, -> {where(done: true).order(completed_at: :desc, created_at: :desc)}
   scope :completed, -> {finished}
 
   ## instance methods
@@ -31,6 +31,7 @@ class Task < ActiveRecord::Base
   def complete!
     if done == false
       self.done = true
+      self.completed_at = Time.now
       self.user.profile.award_xp_for_task_completion self.xp_points
       save
     end

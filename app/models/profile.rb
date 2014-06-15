@@ -38,13 +38,12 @@ class Profile < ActiveRecord::Base
 
   ## instance methods
 
-  def xp_for_next_level
-    xp = Rules.base_xp_per_level * (level + 0.15 * (self.level - 1))
-    return xp.to_i
+  def xp_points_for_next_level
+    Rules.xp_for_level(level)
   end
 
   def percentage_xp_to_next_level
-    xp = (xp_points.to_f / xp_for_next_level.to_f) * 100
+    xp = (xp_points.to_f / Rules.xp_for_level(level).to_f) * 100
     return xp.to_i
   end
 
@@ -63,7 +62,7 @@ class Profile < ActiveRecord::Base
   ## private
 
   def check_and_update_level
-    if self.xp_points > self.xp_for_next_level
+    if self.xp_points > Rules.xp_for_level(level)
       self.level += 1
     end
   end

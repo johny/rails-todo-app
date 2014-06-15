@@ -20,4 +20,11 @@ class User < ActiveRecord::Base
     return tasks.completed.size
   end
 
+  def recalculate_xp!
+
+    profile.xp_points = tasks.completed.sum(:xp_points)
+    profile.save
+
+  end
+
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614223312) do
+ActiveRecord::Schema.define(version: 20140615095123) do
 
   create_table "installs", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -43,11 +43,12 @@ ActiveRecord::Schema.define(version: 20140614223312) do
   create_table "tasks", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.boolean  "done",        default: false
+    t.boolean  "done",         default: false
     t.integer  "xp_points"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "completed_at"
   end
 
   create_table "users", force: true do |t|

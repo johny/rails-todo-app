@@ -10,7 +10,7 @@
 
     %dl.dl-horizontal
 
-      %dt Poziom
+      %dt Poziom:
       %dd= current_user.profile.level
 
       %dt Otwarte zadania:
@@ -23,7 +23,5 @@
   %div.chart.xp-chart{data: {percent: current_user.profile.percentage_xp_to_next_level}}
     %span.lvl-label Poziom
     %span.level= current_user.profile.level
-    %span.xp-label Punkty doświadczenia
-    %span.points= "#{current_user.profile.xp_points} / #{current_user.profile.xp_for_next_level}"
-
-
+    %span.xp-label Punkty doświadczenia na kolejny poziom
+    %span.points= "#{current_user.profile.xp_points} / #{current_user.profile.xp_points_for_next_level}"
