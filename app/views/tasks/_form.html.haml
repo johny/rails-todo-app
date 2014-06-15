@@ -1,5 +1,5 @@
 %div.well
-  = form_for @task, html: {class: "todo-form"} do |f|
+  = form_for @task, remote: false, html: {class: "todo-form"} do |f|
     %div.row
       %div.col-md-9
         = f.label :title, "Zadanie:", class: "sr-only"

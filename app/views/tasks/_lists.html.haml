@@ -1,26 +1,13 @@
-- if @tasks.size > 0
-  %ul.list-group
-    - @tasks.each do |task|
-      %li.list-group-item
-        = link_to complete_task_path(task), class: 'action-complete', method: :post do
-          = task.title
-          %span.glyphicon.glyphicon-ok
+%ul#tasks.list-group
+  - if @tasks.size > 0
+    = render @tasks
 
-        %span.task-xp.label.label-info
-          %span.glyphicon.glyphicon-star
-          = "#{task.xp_points} XP"
+  - else
 
-        = link_to edit_task_path(task), class: 'action-edit' do
-          %span.glyphicon.glyphicon-edit
-        = link_to task_path(task), class: 'action-delete', method: :delete do
-          %span.glyphicon.glyphicon-trash
-
-- else
-
-  %div.alert.alert-info
-    %p
-      %strong Hurra!
-      Brak zadań na dziś!
+    %div.alert.alert-info
+      %p
+        %strong Hurra!
+        Brak zadań na dziś!
 
 
 - if @finished_tasks.size > 0

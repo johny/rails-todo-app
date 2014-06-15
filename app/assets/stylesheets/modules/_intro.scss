@@ -1,0 +1,104 @@
+.intro, .promo{
+  background: url(asset_path('intro/intro-7.jpg')) 0 0 no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border-bottom: 5px solid #c0392b;
+  background-attachment: fixed;
+
+  .jumbotron{
+    padding-top: 160px;
+    min-height: 640px;
+    margin: 0;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
+    text-align: center;
+  }
+
+  &.full{
+    height: 100%;
+    .jumbotron{
+      height: 100%;
+    }
+  }
+
+  h1{
+    margin: 0;
+  }
+
+  p.lead{
+    font-weight: 400;
+    margin: 0 0 40px 0;
+  }
+}
+
+.promo{
+  background: url(asset_path('intro/intro-6.jpg')) 0 0 no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border-bottom: none;
+  background-attachment: fixed;
+
+  .jumbotron{
+    padding-top: 200px;
+    min-height: 480px;
+  }
+}
+
+.btn-special{
+  color: #fff;
+  border: 3px solid #fff;
+  padding: 10px 30px;
+  margin: 0.5em 0 0 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  .glyphicon{
+    margin: 0 5px 0px 0;
+    position: relative;
+    top: 1px;
+  }
+
+  &:hover{
+    background: #fff;
+    color: #27ae60;
+    text-shadow: none;
+  }
+}
+
+
+.hgroup{
+  text-align: center;
+  padding: 2em 0 4em 0;
+  margin: 0 0 1em 0;
+  border-bottom: 1px dotted #ddd;
+
+  p{
+    font-size: $font-size-large;
+    max-width: 42em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &.last{
+    border-bottom: none;
+  }
+
+}
+
+.signup{
+  background: #c0392b;
+  z-index: 10;
+  color: #fff;
+  text-align: center;
+  padding: 2em 0 4em 0;
+}
+
+.info{
+  text-align: center;
+  padding: 20px;
+}

@@ -1,6 +1,21 @@
+.absolute-header{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+
+  a{color: #eee;}
+
+  .container{
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+}
+
 .page-header{
   position: relative;
 }
+
+
 
 .nav-right{
   position: absolute;
@@ -10,7 +25,8 @@
 
 
 .footer{
-  background: $gray-dark;
+  background: #fff;
   color: $gray-light;
-  padding: 20px 0;
+  padding: 50px 0;
+  text-align: center;
 }

@@ -13,12 +13,7 @@ class Task < ActiveRecord::Base
 
   ## callbacks
 
-  before_create do
-    set_xp_for_task
-
-    # add some points for user for
-    self.user.profile.award_xp_for_task_creation
-  end
+  before_create :set_xp_for_task
 
   ## scopes
 

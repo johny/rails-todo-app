@@ -23,12 +23,19 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.user = current_user
-    if @task.save
-      flash[:notice] = "Zadanie zapisane!"
-      redirect_to tasks_path
-    else
-      flash.now[:error] = "Niepoprawne dane"
-      render action: "index"
+    respond_to do |format|
+      if @task.save
+        format.html {
+          flash[:notice] = "Zadanie zapisane!"
+          redirect_to tasks_path
+        }
+        format.js {}
+      else
+        format.html {
+          flash.now[:error] = "Niepoprawne dane"
+          render action: "index"
+        }
+      end
     end
 
   end

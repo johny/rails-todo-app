@@ -65,6 +65,7 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    flutie (2.0.0)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -174,6 +175,7 @@ DEPENDENCIES
   capistrano-rvm
   devise
   figaro
+  flutie
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails

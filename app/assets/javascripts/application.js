@@ -5,7 +5,15 @@
 //= require jquery.easy-pie-chart.js
 //= require_tree .
 
-$(document).on('page:change', function() {
+var TodoApp = {
+  init: function(){
+
+    this.initCharts();
+    this.ajaxTodoForm();
+
+  },
+
+  initCharts: function(){
     $('.chart').easyPieChart({
       scaleColor: false,
       lineWidth: 10,
@@ -19,4 +27,15 @@ $(document).on('page:change', function() {
         return color;
       }
     });
+  },
+
+  ajaxTodoForm: function(){
+
+  }
+
+}
+
+$(document).on('page:change', function() {
+
+  TodoApp.init()
 });

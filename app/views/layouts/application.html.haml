@@ -7,12 +7,17 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
+  %body{class: body_class}
     - if Rails.env == 'production'
       = render partial: 'layouts/gat'
-    = render partial: 'layouts/header'
-    %div.container
-      = render partial: 'layouts/flash'
-      = yield
+
+    - if content_for? :intro
+      = render partial: 'layouts/simple_header'
+      = yield :intro
+    - else
+      = render partial: 'layouts/header'
+      %div.container
+        = render partial: 'layouts/flash'
+        = yield
 
     = render partial: 'layouts/footer'

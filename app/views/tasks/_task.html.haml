@@ -1,0 +1,13 @@
+%li.list-group-item
+  = link_to complete_task_path(task), class: 'action-complete', method: :post do
+    = task.title
+    %span.glyphicon.glyphicon-ok
+
+  %span.task-xp.label.label-info
+    %span.glyphicon.glyphicon-star
+    = "#{task.xp_points} XP"
+
+  = link_to edit_task_path(task), class: 'action-edit' do
+    %span.glyphicon.glyphicon-edit
+  = link_to task_path(task), class: 'action-delete', method: :delete do
+    %span.glyphicon.glyphicon-trash

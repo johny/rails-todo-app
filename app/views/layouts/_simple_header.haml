@@ -1,0 +1,35 @@
+%header.header.absolute-header
+  %nav.navbar.navbar-transparent.navbar-static-top
+    .container
+      .navbar-header
+        %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        = link_to root_path, class: 'navbar-brand' do
+          TodoRPG
+          - if user_signed_in?
+            %span.badge
+              = current_user.number_of_open_tasks
+      .collapse.navbar-collapse
+        -# if user_signed_in?
+          %ul.nav.navbar-nav
+            %li.navbar-text
+              Poziom
+              = current_user.profile.level
+            %li.navbar-text
+              Punkty doświadczenia:
+              = "#{current_user.profile.xp_points} / #{current_user.profile.xp_points_for_next_level}"
+
+
+        %ul.nav.navbar-nav.navbar-right
+          - if user_signed_in?
+            %li.navbar-text Witaj #{current_user.name}!
+            %li= link_to 'Twój profil', profile_path
+            %li= link_to 'Ustawienia', edit_user_registration_path
+            %li= link_to 'Wyloguj się', destroy_user_session_path, :method=>'delete'
+
+          - else
+            %li= link_to 'Logowanie', new_user_session_path
+            %li= link_to 'Rejestracja', new_user_registration_path

@@ -1,15 +1,56 @@
-%div.page-content
-  %div.jumbotron
-    %h1 Codzienne zadania jako gra RPG!
-    %p.lead Podbijaj codzienne zadania! Bądź bardziej produktywny, skupiony a jednocześnie baw się zdobywając punkty doświadczenia i poziomy, rozwiązując questy i wyzwania.
-    %p
-      = link_to "Zarejestruj się i zacznij już dziś", new_user_registration_path, class: "btn btn-primary"
+- content_for :intro do
+  %div.intro
+    %div.jumbotron
+      %div.container
+        %h1 Życie jest grą...
+        %p.lead Zapisuj zadania i rzeczy do zrobieni. Zdobywaj punkty, rozwijaj się i utrzymuj motywację!
 
-  %div.row
-    %div.col-md-6
-      %h3 Organizuj swoje życie
+        = link_to new_user_registration_path, class: 'btn btn-special' do
+          %span.glyphicon.glyphicon-log-in
+          Dołącz do gry
+
+  %div.container{role: "primary"}
+    %div.hgroup
+      %h2 Codzienne zadania jako gra RPG!
+      %p Podbijaj codzienne zadania! Bądź bardziej produktywny, skupiony a jednocześnie baw się zdobywając punkty doświadczenia i poziomy, rozwiązując questy i wyzwania.
       %p TodoRPG umożliwia banalny sposób na zarządzanie Twoimi zadaniami czy listami "to-do". Cokolwiek planujesz zrobić, po prostu wrzuć na listę i odhacz kiedy jest zrobione. To takie proste!
 
-    %div.col-md-6
-      %h3 Graj w gre!
+  %div.container{role: "secondary"}
+    %div.hgroup
+      %h2 Jak to działa?
+
       %p Codzienne zadania mogą być nudne... Nie u nas! Za każde wykonane zadanie z Twojej listy zdobywasz punkty doświadczenia i rozwijasz się. Tak jak w prawdziwym życiu ;-) Ale w TodoRPG czeka na Ciebie dużo więcej! Odkryj to!
+
+    %div.hgroup.last
+
+      %div.row
+        %div.col-md-6
+          %h3 Progress to podstawa
+          %p Śledząc swoje postępy, zyskasz miał motywacyjnego kopa do dalszego działania. Ubywa rzeczy na liście? To znaczy, że posuwasz się do przodu! Dodaj kolejne cele i nie przestawaj!
+
+        %div.col-md-6
+          %h3 Motywacja do działania
+          %p Dzięki elementom rozrywki odkryjesz kolejne etapy swojego rozwoju osobistego. Cały czas będziesz zmotywowany to poprawiania swoich wyników, pracy nad sobą i ogólnego parcia do przodu!
+
+  %div.signup
+    %div.container
+      %div.row
+        %div.col-md-4
+          %h2 Zadania
+          %p Zapisuj plany, rzeczy do zrobienia, zakupy, pomysły. Wrzucenie na listę, to łatwy sposób żeby niczego nie zapomnieć i zawsze mieć pod ręką.
+
+        %div.col-md-4
+          %h2 Postępy
+          %p Każde ukończone zadanie to punkty doświadczenia! Rozwijasz się, tak jak w prawdziwym życiu, każdy sukces przybliża Cię do celu.
+
+        %div.col-md-4
+          %h2 Osiągnięcia
+          %p Zdobywaj punkty i rośnij w siłę. Rozwijaj swój profil i zgarniaj bonusy! Zobacz co możesz odkryć po drodze! Skarby, złoto i przygody!
+
+  %div.promo
+    %div.jumbotron
+      %div.container
+        %p.lead TodoRPG jest aktualnie w fazie beta. Zapraszamy do testów!
+        = link_to new_user_registration_path, class: 'btn btn-special' do
+          %span.glyphicon.glyphicon-log-in
+          Zacznij już dziś!
