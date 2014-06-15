@@ -7,7 +7,12 @@ class User < ActiveRecord::Base
   ## relations
 
   has_many :tasks
-  has_one :profile
+  has_one :profile, dependent: :destroy
+
+  validates :name, presence: true, length: {
+    maximum: 250,
+    too_long: "Maksymalnie 250 znaków!"
+  }
 
   after_create do
     if profile.nil?
