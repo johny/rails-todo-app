@@ -17,9 +17,13 @@
     = f.label :password, "Hasło:"
     = f.password_field :password, class: 'form-control'
     %span.help-block Minimum 8 znaków
+
   %div.form-group
     = f.label :password_confirmation, "Powtórz hasło"
     = f.password_field :password_confirmation, class: 'form-control'
+
+  %div.alert.alert-info
+    %p Rejestrując się, akceptujesz, że nie ma na razie żadnego regulaminu.
 
   = f.submit 'Zarejestruj się', class: 'btn btn-primary'
 
