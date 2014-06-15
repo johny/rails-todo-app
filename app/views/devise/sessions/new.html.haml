@@ -16,10 +16,11 @@
       = link_to "Nie pamiętasz hasła?", new_password_path(resource_name), class: 'right'
 
   - if devise_mapping.rememberable?
-    %div.form-group
-      %div.checkbox
+    %div.checkbox
+      = f.label :remember_me do
         = f.check_box :remember_me
-        = f.label :remember_me, "Zapamiętaj na 2 tygodnie"
+        Zapamiętaj na 2 tygodnie
+
 
   %div.form-actions
     = f.submit 'Zaloguj się', class: 'btn btn-primary'
