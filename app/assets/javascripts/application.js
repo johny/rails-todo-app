@@ -10,7 +10,7 @@ $(document).on('page:change', function() {
       scaleColor: false,
       lineWidth: 10,
       size: 240,
-      trackColor: "#ffffff",
+      trackColor: "#eeeeee",
       barColor: function(p){
         var color = '#9b59b6';
         if(p >= 50){
