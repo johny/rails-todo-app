@@ -9,6 +9,12 @@ class User < ActiveRecord::Base
   has_many :tasks
   has_one :profile
 
+  after_create do
+    if profile.nil?
+      profile = Profile.initialize_profile_for!(self)
+    end
+  end
+
 
   ## instance methods
 
