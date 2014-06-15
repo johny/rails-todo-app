@@ -28,7 +28,7 @@ class TasksController < ApplicationController
       redirect_to tasks_path
     else
       flash.now[:error] = "Niepoprawne dane"
-      render action: "new"
+      render action: "index"
     end
 
   end
