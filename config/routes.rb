@@ -2,13 +2,15 @@ Rails.application.routes.draw do
 
   resource :profile
 
-  devise_for :users
   resources :tasks do
     member do
       post 'complete'
     end
   end
 
+  devise_for :users, :controllers => { :registrations => "registrations" }
+
+  get 'welcome' => 'pages#welcome', as: :welcome
   root 'pages#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
