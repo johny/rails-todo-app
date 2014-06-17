@@ -16,7 +16,15 @@ gem 'devise'
 gem 'figaro'
 gem 'flutie'
 
+gem 'money-rails'
+
+gem 'i18n'
+gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
+
 group :development do
+
+  gem 'puma'
+
   gem 'spring',        group: :development
 
   gem 'capistrano', '~> 3.2.1'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140615095123) do
+ActiveRecord::Schema.define(version: 20140616214943) do
 
   create_table "installs", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -33,9 +33,10 @@ ActiveRecord::Schema.define(version: 20140615095123) do
 
   create_table "profiles", force: true do |t|
     t.integer  "user_id"
-    t.integer  "xp_points",  default: 0
-    t.integer  "level",      default: 1
-    t.string   "title",                  null: false
+    t.integer  "xp_points",   default: 0
+    t.integer  "level",       default: 1
+    t.string   "title",                   null: false
+    t.integer  "amount_gold", default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

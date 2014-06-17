@@ -41,3 +41,42 @@
   }
 
 }
+
+.money{
+  text-align: left;
+  line-height: 100px;
+}
+
+.gold-coin{
+  display: inline-block;
+  width: 160px;
+  height: 160px;
+  border-radius: 100px;
+  background: #fce468;
+  border: 10px solid #fdd525;
+  box-shadow: 1px 3px 0px #c0933a;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  font-size: 96px;
+  font-weight: 100;
+  margin: 0 10px 0 0;
+  padding: 15px 0 0 0;
+  vertical-align: middle;
+}
+
+.silver-coin{
+  display: inline-block;
+  width: 140px;
+  height: 140px;
+  border-radius: 100px;
+  border: 10px solid #ddd;
+  box-shadow: 1px 3px 0px #aaa;
+  background: #eee;
+  font-size: 64px;
+  text-align: center;
+  color: #999;
+  padding: 8px 0 0 0;
+  font-weight: 100;
+  vertical-align: middle;
+}

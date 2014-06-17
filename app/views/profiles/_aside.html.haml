@@ -20,6 +20,22 @@
       %dd= current_user.number_of_completed_tasks
 
 %div.panel.panel-default
+  %div.panel-heading
+    %h3.panel-title Twoje bogactwo
+  %div.panel-body
+    %div.money
+
+      %div.gold-coin
+        = money_without_cents current_user.profile.gold
+
+      %div.silver-coin
+        = current_user.profile.silver
+  %div.panel-footer
+    = "Posiadasz #{t('coin.pieces', count: money_without_cents(current_user.profile.gold).to_i)} złota"
+    = "i  #{t('coin.pieces', count: current_user.profile.silver)} srebra."
+
+
+%div.panel.panel-default
   %div.panel-body
     %div.chart.xp-chart{data: {percent: current_user.profile.percentage_xp_to_next_level}}
       %span.lvl-label Aktualny poziom

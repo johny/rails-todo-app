@@ -4,6 +4,10 @@ class Profile < ActiveRecord::Base
 
   belongs_to :user
 
+  ## attributes
+
+  monetize :amount_gold, as: "gold", numericality: { greater_than_or_equal_to: 0 }
+
   ## callbacks
 
   before_save :check_and_update_level
@@ -37,6 +41,10 @@ class Profile < ActiveRecord::Base
   end
 
   ## instance methods
+
+  def silver
+    gold.cents % 100
+  end
 
   def xp_points_for_next_level
     Rules.xp_for_level(level)

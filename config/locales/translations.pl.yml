@@ -1,0 +1,8 @@
+pl:
+  coin:
+    pieces:
+      one: "%{count} sztukę"
+      few: "%{count} szuki"
+      many: "%{count} sztuk"
+      other: "%{count} sztuk"
+
