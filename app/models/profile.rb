@@ -55,9 +55,10 @@ class Profile < ActiveRecord::Base
     return xp.to_i
   end
 
-  def award_xp_for_task_completion xp
+  def award_bonus_for_task_completion task
     # update profile
-    self.xp_points += xp
+    self.xp_points += task.xp_points
+    self.gold += task.gold
     self.save!
   end
 

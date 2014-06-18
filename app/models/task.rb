@@ -11,9 +11,13 @@ class Task < ActiveRecord::Base
     too_long: "Maksymalnie 250 znaków!"
   }
 
+  ## attributes
+
+  monetize :amount_gold, as: "gold", numericality: { greater_than_or_equal_to: 0 }
+
   ## callbacks
 
-  before_create :set_xp_for_task
+  before_validation :setup_task, :on => :create
 
   ## scopes
 
@@ -27,20 +31,34 @@ class Task < ActiveRecord::Base
     if done == false
       self.done = true
       self.completed_at = Time.now
-      self.user.profile.award_xp_for_task_completion self.xp_points
+      self.user.profile.award_bonus_for_task_completion self
       save
     end
+  end
+
+  def silver
+    gold.cents % 100
   end
 
   ## private methods
 
   private
 
-    def set_xp_for_task
-      # get base value
+    def setup_task
+
+      logger.debug "Testing callback!"
+
+      # get base value to set xp
       xp = Rules.base_xp_bonus_for_task_completion
       xp = (xp * rand(80..120) / 100).to_i
       self.xp_points = xp
+
+      # get base value to set gold
+      gold = Rules.base_gold_per_level
+      gold = gold * rand(75..125) / 100
+      self.gold = gold
+
+      puts "Putting gold! #{gold}!"
     end
 
 end

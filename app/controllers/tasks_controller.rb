@@ -33,6 +33,8 @@ class TasksController < ApplicationController
       else
         format.html {
           flash.now[:error] = "Niepoprawne dane"
+          @tasks = current_user.tasks.not_done
+          @finished_tasks = current_user.tasks.finished.limit(10)
           render action: "index"
         }
       end

@@ -4,6 +4,10 @@ class Rules
     750
   end
 
+  def self.base_gold_per_level
+    0.25
+  end
+
   def self.base_xp_modifier_per_level level
     return 0.03 + level * 0.001
   end
@@ -24,5 +28,7 @@ class Rules
     return xp.to_i
 
   end
+
+
 
 end
