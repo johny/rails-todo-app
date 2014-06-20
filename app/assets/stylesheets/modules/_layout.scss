@@ -35,6 +35,12 @@
 .footer{
   background: #fff;
   color: $gray-light;
-  padding: 50px 0;
+  padding: 20px 0 20px 0;
+  margin: 10px 0 0 0;
   text-align: center;
+
+  .container{
+    padding: 20px 0 20px 0;
+    border-top: 1px dotted #eee;
+  }
 }

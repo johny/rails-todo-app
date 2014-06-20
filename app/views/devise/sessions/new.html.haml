@@ -1,26 +1,27 @@
-%div.page-header
-  %h1 Zaloguj się
+- content_for :single do
+  %div.page-header
+    %h1 Zaloguj się
 
-= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f|
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f|
 
-  = devise_error_messages!
+    = devise_error_messages!
 
-  %div.form-group
-    = f.label :email, "Adres email:"
-    = f.email_field :email, autofocus: true, class: 'form-control'
+    %div.form-group
+      = f.label :email, "Adres email:"
+      = f.email_field :email, autofocus: true, class: 'form-control'
 
-  %div.form-group
-    = f.label :password, "Hasło:"
-    = f.password_field :password, class: 'form-control'
-    - if devise_mapping.recoverable?
-      = link_to "Nie pamiętasz hasła?", new_password_path(resource_name), class: 'right'
+    %div.form-group
+      = f.label :password, "Hasło:"
+      = f.password_field :password, class: 'form-control'
+      - if devise_mapping.recoverable?
+        = link_to "Nie pamiętasz hasła?", new_password_path(resource_name), class: 'right'
 
-  - if devise_mapping.rememberable?
-    %div.checkbox
-      = f.label :remember_me do
-        = f.check_box :remember_me
-        Zapamiętaj na 2 tygodnie
+    - if devise_mapping.rememberable?
+      %div.checkbox
+        = f.label :remember_me do
+          = f.check_box :remember_me
+          Zapamiętaj na 2 tygodnie
 
 
-  %div.form-actions
-    = f.submit 'Zaloguj się', class: 'btn btn-primary'
+    %div.form-actions
+      = f.submit 'Zaloguj się', class: 'btn btn-primary'
