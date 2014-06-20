@@ -58,7 +58,15 @@ class Profile < ActiveRecord::Base
   def award_bonus_for_task_completion task
     # update profile
     self.xp_points += task.xp_points
-    self.gold += task.gold unless task.gold.nil?
+
+    # fix tasks with no gold
+    if task.gold.nil?
+      task_gold = Rules.base_gold_per_level
+      task_gold = task_gold * rand(75..125) / 100
+      task.gold = task_gold
+      task.save
+    end
+    self.gold += task.gold
     self.save!
   end
 
