@@ -5,7 +5,8 @@
 
   %span.task-gold.label.label-default
     %span.glyphicon.glyphicon-gift
-    = "#{t('coin.pieces', count: task.silver)} srebra"
+      - unless task.gold.nil?
+        = "#{t('coin.pieces', count: task.silver)} srebra"
 
   %span.task-xp.label.label-info
     %span.glyphicon.glyphicon-star
