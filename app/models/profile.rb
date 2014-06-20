@@ -58,7 +58,7 @@ class Profile < ActiveRecord::Base
   def award_bonus_for_task_completion task
     # update profile
     self.xp_points += task.xp_points
-    self.gold += task.gold
+    self.gold += task.gold unless task.gold.nil?
     self.save!
   end
 
