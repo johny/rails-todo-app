@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :tasks
   has_one :profile, dependent: :destroy
+  has_many :projects
 
   validates :name, presence: true, length: {
     maximum: 250,

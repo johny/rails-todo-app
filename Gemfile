@@ -42,4 +42,5 @@ end
 #assets
 gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass'
+gem 'font-awesome-sass'
 gem 'rails-assets-jquery.easy-pie-chart'

@@ -10,7 +10,6 @@
   %body{class: body_class}
     - if Rails.env == 'production'
       = render partial: 'layouts/gat'
-
     - if content_for? :intro
       = render partial: 'layouts/simple_header'
       = yield :intro
@@ -22,8 +21,18 @@
             %div.col-md-6.col-md-offset-3
               = render partial: 'layouts/flash'
               = yield :single
+        - elsif content_for? :aside
+          %div.row
+            %div.col-md-8
+              = render partial: 'layouts/flash'
+              = yield
+            %div.col-md-4
+              = yield :aside
         - else
-          = render partial: 'layouts/flash'
-          = yield
+          %div.row
+            %div.col-md-12
+              = render partial: 'layouts/flash'
+              = yield
+
 
     = render partial: 'layouts/footer'

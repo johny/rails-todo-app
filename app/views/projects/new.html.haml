@@ -1,0 +1,27 @@
+%div.page-header
+  %h1 Dodaj projekt
+
+  %ul.nav.nav-pills.nav-right
+    %li= link_to "wróć do listy projektów", projects_path
+
+%div.page-content
+  = form_for @project do |f|
+
+    %div.form-group
+      = f.label :name, "Nazwa projektu:"
+      = f.text_field :name, autofocus: true, class: 'form-control'
+
+    %div.form-group
+      = f.label :description, "Opis:"
+      = f.text_area :description, class: 'form-control', rows: 3
+
+    %div.row
+      %div.form-group.col-sm-6
+        = f.label :due_date, "Deadline:"
+        = f.date_field :due_date, class: 'form-control'
+
+    %div.form-group.form-actions
+      = f.submit 'Utwórz projekt', class: 'btn btn-primary'
+
+- content_for :aside do
+  = render partial: 'projects/hint'

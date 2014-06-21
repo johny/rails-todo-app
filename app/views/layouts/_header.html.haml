@@ -13,14 +13,9 @@
             %span.badge
               = current_user.number_of_open_tasks
       .collapse.navbar-collapse
-        -# if user_signed_in?
+        - if user_signed_in?
           %ul.nav.navbar-nav
-            %li.navbar-text
-              Poziom
-              = current_user.profile.level
-            %li.navbar-text
-              Punkty doświadczenia:
-              = "#{current_user.profile.xp_points} / #{current_user.profile.xp_points_for_next_level}"
+            %li= link_to "Projekty", projects_path
 
 
         %ul.nav.navbar-nav.navbar-right

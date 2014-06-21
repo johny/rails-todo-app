@@ -1,6 +1,8 @@
 %div.page-header
   %h1
-    Twoje zadania
+    = @project.name
+    - unless @project.description.nil?
+      %small= @project.description
 
 %div.page-content
   = render partial: 'tasks/form'

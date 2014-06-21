@@ -66,6 +66,8 @@ GEM
       bundler (~> 1.0)
       rails (>= 3, < 5)
     flutie (2.0.0)
+    font-awesome-sass (4.1.0)
+      sass (~> 3.2)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -190,6 +192,7 @@ DEPENDENCIES
   devise
   figaro
   flutie
+  font-awesome-sass
   haml-rails
   i18n
   jbuilder (~> 2.0)

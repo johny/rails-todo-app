@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
+  resources :projects do
+    resources :tasks do
+      post 'complete', on: :member
+    end
+  end
+
   resource :profile
 
   resources :tasks do
-    member do
-      post 'complete'
-    end
+    post 'complete', on: :member
   end
 
   devise_for :users, :controllers => { :registrations => "registrations" }

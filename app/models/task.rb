@@ -3,6 +3,7 @@ class Task < ActiveRecord::Base
   ## relations
 
   belongs_to :user
+  belongs_to :project
 
   ## validations
 

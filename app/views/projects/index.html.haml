@@ -1,0 +1,27 @@
+%div.page-header
+  %h1 Projekty
+
+  %ul.nav.nav-pills.nav-right
+    %li= link_to "Dodaj projekt", new_project_path
+
+
+%div.page-content
+
+  - if @projects.size > 0
+    %ul.list-group.list-projects
+      - @projects.each do |p|
+        %li.list-group-item
+          = link_to p.name, project_path(p)
+          - unless p.description.blank?
+            %small
+              &mdash;
+              = p.description
+          %span.badge
+            = p.tasks.size
+  - else
+    %p Nie masz jeszcze żadnych projektów.
+    = link_to "Utwórz pierwszy projekt", new_project_path
+
+
+- content_for :aside do
+  = render partial: 'projects/hint'

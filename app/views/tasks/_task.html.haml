@@ -5,8 +5,15 @@
 
   - unless task.gold.nil?
     %span.task-gold.label.label-default
-      %span.glyphicon.glyphicon-gift
-      = "#{t('coin.pieces', count: task.silver)} srebra"
+      %i.fa.fa-plus-circle
+      =task.silver
+      silver
+
+  %small.task-project
+    - if task.project.nil?
+      = "#inbox"
+    -else
+      = "##{task.project.name}"
 
   %span.task-xp.label.label-info
     %span.glyphicon.glyphicon-star

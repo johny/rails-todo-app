@@ -1,13 +1,12 @@
-%ul#tasks.list-group
-  - if @tasks.size > 0
+- if @tasks.size > 0
+  %ul#tasks.list-group.list-tasks
     = render @tasks
 
-  - else
-
-    %div.alert.alert-info
-      %p
-        %strong Hurra!
-        Brak zadań na dziś!
+- else
+  %div.alert.alert-info
+    %p
+      %strong Hurra!
+      Brak zadań na dziś!
 
 
 - if @finished_tasks.size > 0

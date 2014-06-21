@@ -4,38 +4,50 @@
   }
 }
 
-.list-group-item{
-  position: relative;
-  padding-left: 30px;
-  padding-right: 230px;
+.list-tasks{
 
-  .task-xp{
+  .list-group-item{
+    position: relative;
+    padding: 25px 230px 10px 30px;
+  }
+
+  .task-xp, .task-gold{
     position: absolute;
     right: 50px;
-    top: 10px;
+    top: 25px;
     width: 60px;
     text-align: left;
   }
 
   .task-gold{
-    position: absolute;
-    top: 10px;
+    width: auto;
     right: 115px;
-    width: 110px;
+  }
+
+  .task-project{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 2px 5px;
+    border-radius: 3px 0 3px 0;
+    color: $gray-light;
+    background: #fafafa;
+    font-size: 10px;
+    text-transform: uppercase;
   }
 
   .glyphicon-ok{
     position: absolute;
     left:8px;
-    top: 12px;
+    top: 26px;
     color: #ddd;
   }
 
   .glyphicon-trash, .glyphicon-edit{
     position: absolute;
     right: 12px;
-    top: 12px;
-    color: #eee;
+    top: 26px;
+    color: #ddd;
   }
 
   .glyphicon-edit{
@@ -49,7 +61,7 @@
         color: $gray;
       }
     }
-    .glyphicon-ok{color: $brand-primary;}
+    a:hover .glyphicon-ok{color: $brand-primary;}
   }
 }
 
