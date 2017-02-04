@@ -13,17 +13,17 @@
 
 ActiveRecord::Schema.define(version: 20140621122819) do
 
-  create_table "installs", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "installs", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -31,51 +31,51 @@ ActiveRecord::Schema.define(version: 20140621122819) do
   add_index "installs", ["email"], name: "index_installs_on_email", unique: true, using: :btree
   add_index "installs", ["reset_password_token"], name: "index_installs_on_reset_password_token", unique: true, using: :btree
 
-  create_table "profiles", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "xp_points",   default: 0
-    t.integer  "level",       default: 1
-    t.string   "title",                   null: false
-    t.integer  "amount_gold", default: 0, null: false
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id",     limit: 4
+    t.integer  "xp_points",   limit: 4,   default: 0
+    t.integer  "level",       limit: 4,   default: 1
+    t.string   "title",       limit: 255,             null: false
+    t.integer  "amount_gold", limit: 4,   default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "projects", force: true do |t|
-    t.string   "name",                        null: false
-    t.text     "description"
+  create_table "projects", force: :cascade do |t|
+    t.string   "name",        limit: 255,                   null: false
+    t.text     "description", limit: 65535
     t.datetime "due_date"
-    t.boolean  "completed",   default: false, null: false
-    t.integer  "user_id"
+    t.boolean  "completed",                 default: false, null: false
+    t.integer  "user_id",     limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "tasks", force: true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.boolean  "done",         default: false
-    t.integer  "xp_points"
-    t.integer  "amount_gold"
-    t.integer  "user_id"
-    t.integer  "project_id"
+  create_table "tasks", force: :cascade do |t|
+    t.string   "title",        limit: 255
+    t.text     "description",  limit: 65535
+    t.boolean  "done",                       default: false
+    t.integer  "xp_points",    limit: 4
+    t.integer  "amount_gold",  limit: 4
+    t.integer  "user_id",      limit: 4
+    t.integer  "project_id",   limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "completed_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "name",                   default: "", null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "name",                   limit: 255, default: "", null: false
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
